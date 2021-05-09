@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { call, put, takeLatest } from "redux-saga/effects"
+import { put, takeLatest } from "redux-saga/effects"
 import history from "../utility/history"
 import {
   SIGN_UP_REQUEST,

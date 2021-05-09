@@ -1,7 +1,5 @@
 import "./card.css"
 import React, { useState } from "react"
-import { connect } from "react-redux"
-import { isAuth } from "../core/auth"
 import Fade from "@material-ui/core/Fade"
 import Modal from "@material-ui/core/Modal"
 import Backdrop from "@material-ui/core/Backdrop"
@@ -33,10 +31,6 @@ const CategoryCard = (props) => {
   const handleClose = () => {
     setOpen(false)
   }
-  const {
-    user: { _id },
-    token,
-  } = isAuth()
 
   return (
     <div className='card' style={{ width: "60%", marginBottom: "10px"}}>

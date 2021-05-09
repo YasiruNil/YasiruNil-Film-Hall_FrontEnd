@@ -1,4 +1,4 @@
-import { get, PostWithToken,putReq, deleteWithToken } from './backendClient'
+import { get, PostWithToken,putReq  } from './backendClient'
 
 export const fetchCategories = (params) => get('categories', params)
 

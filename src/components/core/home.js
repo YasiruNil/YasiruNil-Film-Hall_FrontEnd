@@ -1,19 +1,19 @@
 import "./core.css"
-import MovieIcon from "@material-ui/icons/Movie"
-import React, { useState, useEffect } from "react"
-import ClipLoader from "react-spinners/ClipLoader"
+import Moment from "react-moment"
 import { css } from "@emotion/core"
 import { connect } from "react-redux"
-import Moment from "react-moment"
-import { getFilms } from "../../actions/index"
 import { APIBASEURL } from "../../config"
+import { getFilms } from "../../actions/index"
+import React, { useState, useEffect } from "react"
+import ClipLoader from "react-spinners/ClipLoader"
+
 const override = css`
-  display: flex
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  border-color: white
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: white;
 `
 const Home = (props) => {
   const [films, setFilms] = useState([])
@@ -33,7 +33,7 @@ const Home = (props) => {
     if (oneFilmItem) {
       return setTimeout(() => {
         setLoading(false)
-      }, 3000)
+      }, 4000)
     } else {
       return (
         <div className='sweet-loading'>

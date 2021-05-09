@@ -1,4 +1,4 @@
-import { get, adminPostWithFormData, deleteWithToken, putReq} from './backendClient'
+import { get, adminPostWithFormData, deleteWithToken } from './backendClient'
 
  export const getFilms = () => get('films')
 

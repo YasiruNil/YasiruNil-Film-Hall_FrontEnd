@@ -35,7 +35,7 @@ const NavBar = (props) => {
   }, [])
   return (
     <div className={`nav ${show && "nav__white"}`}>
-      <img src={"img/cina.png"} alt='cinama-logo' className='nav__logo' />
+      <img src={"img/cina.png"} className='nav__logo' />
       <ul className='navbar__list'>
         <li>
           <Link
