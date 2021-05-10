@@ -1,17 +1,16 @@
 import "./dashboard.css"
+import Card from "../shared/card"
 import { connect } from "react-redux"
-import { isAuth } from "../core/auth"
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import AddFilm from "../admin/addFilm"
 import Fade from "@material-ui/core/Fade"
 import Modal from "@material-ui/core/Modal"
-import AddFilm from "../admin/addFilm"
 import AddCategory from "../admin/addCategory"
-import Backdrop from "@material-ui/core/Backdrop"
-import { makeStyles } from "@material-ui/core/styles"
-import Card from "../shared/card"
-import { getFilms, fetchCategories } from "../../actions/index"
 import CategoryCard from "../shared/categoryCard"
+import Backdrop from "@material-ui/core/Backdrop"
+import React, { useState, useEffect } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import { getFilms, fetchCategories } from "../../actions/index"
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -36,8 +35,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 const AdminDashboard = (props) => {
   const classes = useStyles()
-  const { user, token } = isAuth()
-
   const [open, setOpen] = useState(false)
   const [openFilm, setOpenFilm] = useState(false)
   const [allCategories, setCategories] = useState([])
