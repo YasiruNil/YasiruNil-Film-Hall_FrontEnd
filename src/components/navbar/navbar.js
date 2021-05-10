@@ -1,41 +1,41 @@
-import "./navbar.css"
-import { compose } from "redux"
-import { connect } from "react-redux"
-import { isAuth } from "../core/auth"
-import { userSignOut } from "../../actions/userAction"
-import React, { useState, useEffect } from "react"
-import { Link, withRouter } from "react-router-dom"
+import "./navbar.css";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { isAuth } from "../core/auth";
+import { userSignOut } from "../../actions/userAction";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "black", border: 0 }
+    return { color: "black", border: 0 };
   } else {
-    return { color: "#ff3366", border: 0 }
+    return { color: "#ff3366", border: 0 };
   }
-}
+};
 const NavBar = (props) => {
-  const [run, setRun] = useState(false)
-  const [show, setShow] = useState(false)
+  const [run, setRun] = useState(false);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     if (props.signOutData === "") {
-      setRun(false)
+      setRun(false);
     } else {
-      setRun(true)
+      setRun(true);
     }
-  }, [props.signOutData])
+  }, [props.signOutData]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
-        setShow(true)
-      } else setShow(false)
-    })
+        setShow(true);
+      } else setShow(false);
+    });
     return () => {
-      window.removeEventListener("scroll")
-    }
-  }, [])
+      window.removeEventListener("scroll");
+    };
+  }, []);
   return (
     <div className={`nav ${show && "nav__white"}`}>
-      <img src={"img/cina.png"} className='nav__logo' />
+      <img src={"img/cinema.jpg"} className='nav__logo' />
       <ul className='navbar__list'>
         <li>
           <Link
@@ -102,20 +102,20 @@ const NavBar = (props) => {
         )}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ user }) => ({
   signOutData: user.signOutData,
-})
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
     userSignOut: (data) => dispatch(userSignOut(data)),
-  }
-}
+  };
+};
 
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(NavBar)
+)(NavBar);

@@ -8,28 +8,28 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator"
 const EditFilm = (props) => {
   const { user, token } = isAuth()
   const {
+    _id,
     name,
-    description,
-    mainActor,
+    price,
     category,
     director,
+    mainActor,
+    secondActor,
+    description,
     releasedDate,
     ticketQuantity,
-    price,
-    secondActor,
-    _id,
   } = props.film
   const [newValues, setNewValues] = useState({
+    photo: "",
     newName: name,
-    newDescription: description,
-    newMainActor: mainActor,
+    newPrice: price,
     newDirector: director,
+    newMainActor: mainActor,
+    formData: new FormData(),
+    newDescription: description,
+    newSecondActor: secondActor,
     newReleasedDate: releasedDate,
     newTicketQuantity: ticketQuantity,
-    newPrice: price,
-    newSecondActor: secondActor,
-    photo: "",
-    formData: new FormData(),
   })
   const handleChange = (e) => {
     setNewValues({ ...newValues, [e.target.name]: e.target.value })
@@ -67,8 +67,8 @@ const EditFilm = (props) => {
     let filmId = _id
     const data = { filmId, _idOfTheUser, token, formData }
     props.updateFilm(data)
-    props.handleCloseFilm()
   }
+  
   return (
     <ValidatorForm onSubmit={handleSubmit}>
       <div className='container mt-4'>

@@ -19,7 +19,6 @@ const EditCategory = (props) => {
     let categoryId = category._id
     const data = {categoryId, _idOfTheUser, name, token }
     props.updateCategory(data)
-    props.handleClose()
   }
   return (
     <ValidatorForm onSubmit={handleSubmit}>

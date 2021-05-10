@@ -1,4 +1,5 @@
 import { toast } from "react-toastify"
+import history from "../utility/history"
 import { put, takeLatest } from "redux-saga/effects"
 import {
   GET_FILMS_REQUEST,
@@ -68,6 +69,7 @@ function* workerDeleteSingleFilm(payload) {
       type: DELETE_SINGLE_FILM_REQUEST_SUCCESS,
       response: result.data.content,
     })
+    toast.success("Successfully Deleted")
     yield put({ type: GET_FILMS_REQUEST })
   } else if (result.data.statusCode === 400) {
     yield put({ type: DELETE_SINGLE_FILM_REQUEST_FAIL })
@@ -85,6 +87,7 @@ function* workerUpdateSingleFilm(payload) {
       type: UPDATE_SINGLE_FILM_REQUEST_SUCCESS,
       response: result.data.content,
     })
+    yield toast.success("Successfully Updated")
     yield put({ type: GET_FILMS_REQUEST })
   } else if (result.data.statusCode === 400) {
     yield put({ type: UPDATE_SINGLE_FILM_REQUEST_FAIL })
